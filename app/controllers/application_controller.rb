@@ -27,10 +27,10 @@ class ApplicationController < Sinatra::Base
     # #include associated reviews in the JSON response
     # game.to_json(include: :reviews)
 
-    # #include associated reviews in the JSON response
+    # #include users associated with the each review
     # game.to_json(include: { reviews: { include: :user } })
 
-    # include associated reviews in the JSON response
+    # unses only option to select which attributes are returned from each model
     game.to_json(only: [:id, :title, :genre, :price], include: {
       reviews: { only: [:comment, :score], include: {
         user: { only: [:name] }
